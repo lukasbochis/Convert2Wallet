@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="dotnet-passbook" Version="3.2.2" />
+    <PackageReference Include="itext7" Version="7.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.ML" Version="2.0.1" />
+    <PackageReference Include="Microsoft.ML.TorchSharp" Version="0.20.0" />
+    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" />
+    <PackageReference Include="TorchSharp-cpu" Version="0.98.1" />
+  </ItemGroup>
+  <ItemGroup Label="DataFinderModel">
+    <None Include="DataFinderModel.consumption.cs">
+      <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="DataFinderModel.mlnet">
+      <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataFinderModel.training.cs">
+      <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="WordDistincterModel">
+    <None Include="WordDistincterModel.consumption.cs">
+      <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="WordDistincterModel.mlnet">
+      <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="WordDistincterModel.training.cs">
+      <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="Convert2Wallet.Wpf.TextBlockDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Convert2Wallet.Wpf"
+        mc:Ignorable="d"
+        Title="TextBlockDialog" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <Label Content="Hier Text eingeben: " Grid.Row="0"/>
+        <TextBox x:Name="InputText" Grid.Row="1"/>
+        <Button Click="Btn_Enter" Grid.Row="2" Margin="37,20,648,64">Bestätigen</Button>
+        <Button Click="Btn_Cancel" Grid.Row="2" Margin="183,20,489,65">Abbrechen</Button>
+    </Grid>
+</Window>
