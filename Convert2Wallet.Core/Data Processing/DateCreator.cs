@@ -8,6 +8,7 @@ namespace Convert2Wallet.Core
 {
     public static class DateCreator
     {
+        // Variable 'count' gibt an, wieviele Daten erstellt werden
         public static string[] CreateDates(int count)
         {
             LinkedList<string> dates = new LinkedList<string>();
@@ -15,7 +16,7 @@ namespace Convert2Wallet.Core
             string tag = "datum;"; // Wird benötigt, um dem Model zu zeigen, um was für ein Feld es sich handelt
 
             for (int i = 0; i < count; i++)
-            {
+            {                                            // Folgendes wird ausgegeben:
                 dates.AddLast(tag + date.ToString("d")); // "01.01.2000"
                 dates.AddLast(tag + date.ToString("g")); // "01.01.2000 02:15"
                 dates.AddLast(tag + date.ToString("f")); // "Samstag, 1. Jänner 2000 02:15"

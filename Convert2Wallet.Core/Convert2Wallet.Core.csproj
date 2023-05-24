@@ -13,27 +13,29 @@
     <PackageReference Include="TorchSharp-cpu" Version="0.98.1" />
   </ItemGroup>
   <ItemGroup Label="DataFinderModel">
-    <None Include="DataFinderModel.consumption.cs">
+    <None Include="Unused\DataFinderModel.consumption.cs">
       <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
     </None>
-    <None Include="DataFinderModel.mlnet">
-      <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="DataFinderModel.training.cs">
+    <None Include="Unused\DataFinderModel.training.cs">
       <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup Label="WordDistincterModel">
-    <None Include="WordDistincterModel.consumption.cs">
+    <None Include="Machine Learning Model\WordDistincterModel.consumption.cs">
       <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
     </None>
-    <None Include="WordDistincterModel.mlnet">
+    <None Include="Machine Learning Model\WordDistincterModel.training.cs">
+      <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Machine Learning Model\WordDistincterModel.mlnet">
       <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="WordDistincterModel.training.cs">
-      <DependentUpon>WordDistincterModel.mbconfig</DependentUpon>
+    <None Update="Unused\DataFinderModel.mlnet">
+      <DependentUpon>DataFinderModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

@@ -1,10 +1,12 @@
 ﻿using Convert2Wallet.Core;
 using Convert2Wallet_Core;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Win32;
 using Passbook.Generator.Fields;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -265,11 +267,15 @@ namespace Convert2Wallet.Wpf
                 //Load model and predict output
                 var result = WordDistincterModel.Predict(sampleData);
 
+                // Falls das Modell zu über 90% sicher ist, dass es ein Name ist,
+                // wird es im Feld PrimaryField ausgefüllt
                 if (result.PredictedLabel == "name" && result.Score[1] >= 0.90)
                 {
                     PrimaryHeader = "Name";
                     PrimaryField = word;
                 }
+                // Falls das Modell zu über 90% sicher ist, dass es ein Datum ist,
+                // wird es im Feld SecondaryField ausgefüllt
                 else if (result.PredictedLabel == "datum" && result.Score[0] >= 0.90)
                 {
                     SecondaryHeaderOne = "Datum";
@@ -284,7 +290,10 @@ namespace Convert2Wallet.Wpf
 
         private void Btn_SaveAndGenerate(object sender, RoutedEventArgs e)
         {
+            // Zuerst wird ein SaveFileDialog geöffnet, 
+            // um den Speicherpfad auszuwählen
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            // Mit diesem Filter können nur PKPASS-Dateien erstellt werden
             saveFileDialog.Filter = "Passbook File (*.pkpass)|*.pkpass";
 
 
@@ -292,6 +301,7 @@ namespace Convert2Wallet.Wpf
             {
                 Convert2Wallet.Core.Passbook passbook = new Convert2Wallet.Core.Passbook();
 
+                // Passbook mit Variablen befüllen
                 if (LogoText != null && LogoText.Length != 0)
                     passbook.AddLogoText(LogoText);
                 if (PrimaryField != null && PrimaryField.Length != 0)
@@ -315,12 +325,12 @@ namespace Convert2Wallet.Wpf
                 if (AuxFieldSix != null && AuxFieldSix.Length != 0)
                     passbook.AddAuxField("aux field", AuxHeaderSix, AuxFieldSix);
 
-
                 passbook.FileName = saveFileDialog.FileName;
 
                 try
                 {
-                    PassbookCreator.GeneratePass(passbook);
+                    FileContentResult result = PassbookCreator.GeneratePass(passbook); // Generieren des Passbooks
+                    File.WriteAllBytes(passbook.FileName, result.FileContents); // Abspeichern des Passbooks
                 }
                 catch (Exception ex)
                 {

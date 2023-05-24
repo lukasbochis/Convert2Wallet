@@ -10,10 +10,10 @@ namespace Convert2Wallet.Core
 {
     public class Passbook
     {
-        private StandardField _primaryField = new StandardField("", "", "");
-        private StandardField _backfield = new StandardField("", "", "Created with Convert2Wallet");
-        private LinkedList<StandardField> _secondaryFields = new LinkedList<StandardField>();        
-        private LinkedList<StandardField> _auxFields = new LinkedList<StandardField>();
+        private StandardField _primaryField = new StandardField("", "", ""); // Primärfeld des Passbooks
+        private StandardField _backfield = new StandardField("", "", "Created with Convert2Wallet"); // Rückseiteninformationen
+        private LinkedList<StandardField> _secondaryFields = new LinkedList<StandardField>(); // Sekundärfelder
+        private LinkedList<StandardField> _auxFields = new LinkedList<StandardField>(); // weitere Informationsfelder
 
         private string _fileName;
         private string _logoText;
@@ -88,7 +88,7 @@ namespace Convert2Wallet.Core
 
         public bool AddAuxField(string key, string label, string value)
         {
-            if (_auxFields.Count < 2)
+            if (_auxFields.Count < 6)
             {
                 StandardField secondaryField = new StandardField(key, label, value);
                 _auxFields.AddLast(secondaryField);

@@ -20,25 +20,22 @@ namespace Convert2Wallet.Core
             string name = "Lukas Bochis";
             DateTime date = DateTime.Now;
 
-            string[] header = { "tag;value" };
+            string[] header = { "tag;value" }; // Kopfzeile für das 
             string[] dates = DateCreator.CreateDates(500);
             string[] names = ReadNames("OGDEXT_VORNAMEN_1.csv");
-            string[] words = ReadRandomWords("Beispielaufsatz.txt");
+            string[] words = ReadEssay_SplitIntoWords("Beispielaufsatz.txt");
 
             string[] total = ((header.Concat(dates)).Concat(names)).Concat(words).ToArray();
             int totalCount = total.Count();
 
-            File.WriteAllLines("newdataset.csv", total, Encoding.UTF8);
+            File.WriteAllLines("dataset.csv", total, Encoding.UTF8);
 
-            Console.WriteLine($"{totalCount} written to newdataset.csv");
-
-            //string[] lines = File.ReadAllLines("OGDEXT_VORNAMEN_1.csv", Encoding.UTF8);
-
-            //FileContentResult result = GeneratePass();
-            //File.WriteAllBytes(result.FileDownloadName, result.FileContents);
+            Console.WriteLine($"{totalCount} written to dataset.csv");
         }
 
-        public static string[] ReadRandomWords(string fileName)
+
+
+        public static string[] ReadEssay_SplitIntoWords(string fileName)
         {
             string[] lines = File.ReadAllLines(fileName, Encoding.UTF8);
 

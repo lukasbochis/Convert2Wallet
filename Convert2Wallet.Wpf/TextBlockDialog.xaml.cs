@@ -26,13 +26,16 @@ namespace Convert2Wallet.Wpf
             InitializeComponent();
         }
 
+        // Button zum Bestätigen
         private void Btn_Enter(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        // Button zum Abbrechen
         private void Btn_Cancel(object sender, RoutedEventArgs e)
         {
+            this.InputText.Text = "";
             this.Close();
         }
     }

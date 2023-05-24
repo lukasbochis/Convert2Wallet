@@ -12,9 +12,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Height="90" Margin="0,172,0,0">
-            <Button Margin="5" Click="Btn_CreateNewPassbook">Create new Passbook</Button>
-            <Button Margin="5" Click="Btn_LoadDataFromFile">Load data from file</Button>
-            <Button Margin="5" Click="Btn_LoadDataFromText">Load data from text</Button>
+            <Button Margin="5" Click="Btn_CreateNewPassbook">Erstellen Sie ein neues Passbook</Button>
+            <Button Margin="5" Click="Btn_LoadDataFromFile">Laden Sie eine PDF-Datei hoch</Button>
+            <Button Margin="5" Click="Btn_LoadDataFromText">Laden Sie einen Text hoch</Button>
         </StackPanel>
     </Grid>
 </Window>

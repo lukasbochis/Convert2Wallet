@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Convert2Wallet.Core.PassbookCreator">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PassbookCreator\PassbookCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Convert2Wallet.Core.Passbook">
+    <Position X="10.25" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>wEABAAEAESAAEAQAAAAAACAAApACAAAAACAABABAAAA=</HashCode>
+      <FileName>PassbookCreator\Passbook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
